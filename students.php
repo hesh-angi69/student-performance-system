@@ -50,6 +50,7 @@ $result = $conn->query($sql);
                     <th>Phone</th>
                     <th>Course</th>
                     <th>Year</th>
+                    <th>Action</th>
 
                 </tr>
 
@@ -94,6 +95,14 @@ $result = $conn->query($sql);
                             <td>
                                 <?php echo $row["year"]; ?>
                             </td>
+
+                            <td>
+
+                                <a href="edit_student.php?id=<?php echo $row["id"]; ?>">
+                                   Edit
+                                </a>
+
+                        </td>
 
                         </tr>
 
