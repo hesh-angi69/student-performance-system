@@ -15,38 +15,50 @@ if (isset($_GET["search"])) {
     $search = trim($_GET["search"]);
 }
 
-$sql = "SELECT * FROM courses
-        WHERE course_code LIKE ?
-        OR course_name LIKE ?
-        ORDER BY id DESC";
+if ($search != "") {
 
-$stmt = $conn->prepare($sql);
+    $sql = "SELECT *
+            FROM courses
+            WHERE course_code LIKE ?
+               OR course_name LIKE ?
+               OR semester LIKE ?
+            ORDER BY id DESC";
 
-$searchTerm = "%" . $search . "%";
+    $stmt = $conn->prepare($sql);
 
-$stmt->bind_param(
-    "ss",
-    $searchTerm,
-    $searchTerm
-);
+    $searchTerm = "%" . $search . "%";
 
-$stmt->execute();
+    $stmt->bind_param(
+        "sss",
+        $searchTerm,
+        $searchTerm,
+        $searchTerm
+    );
 
-$result = $stmt->get_result();
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+} else {
+
+    $sql = "SELECT *
+            FROM courses
+            ORDER BY id DESC";
+
+    $result = $conn->query($sql);
+}
 
 ?>
 
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Courses - SPMS</title>
+    <title>Courses | SPMS</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -54,158 +66,386 @@ $result = $stmt->get_result();
 
 <body>
 
-<div class="container">
+<div class="dashboard">
 
-    <h1>Course Management</h1>
+    <!-- SIDEBAR -->
 
-    <p>Manage all registered courses</p>
+    <aside class="sidebar">
 
+        <h2>SPMS</h2>
 
-    <!-- Search -->
+        <p class="sidebar-title">
+            Student Performance
+        </p>
 
-    <form method="GET" action="courses.php">
-
-        <input
-            type="text"
-            name="search"
-            placeholder="Search by course code or name"
-            value="<?php echo htmlspecialchars($search); ?>"
-        >
-
-        <button type="submit">
-            Search
-        </button>
-
-        <a href="courses.php">
-            <button type="button">
-                Clear
-            </button>
+        <a href="dashboard.php">
+            🏠 Dashboard
         </a>
 
-    </form>
+        <a href="students.php">
+            👨‍🎓 Students
+        </a>
 
-    <br>
+        <a href="courses.php" class="active">
+            📚 Courses
+        </a>
+
+        <a href="marks.php">
+            📝 Marks
+        </a>
+
+        <a href="gpa.php">
+            🧮 GPA Calculation
+        </a>
+
+        <a href="#">
+            📅 Attendance
+        </a>
+
+        <a href="#">
+            📊 Reports
+        </a>
+
+        <a href="#">
+            ⚙ Settings
+        </a>
+
+        <a href="logout.php" class="logout-link">
+            🚪 Logout
+        </a>
+
+    </aside>
 
 
-    <a href="add_course.php">
+    <!-- MAIN CONTENT -->
 
-        <button>
-            Add New Course
-        </button>
+    <main class="main-content courses-page">
 
-    </a>
+        <!-- TOP BAR -->
 
-    <br><br>
+        <div class="topbar">
+
+            <div>
+
+                <span class="breadcrumb">
+                    Course Management
+                </span>
+
+            </div>
 
 
-    <!-- Course Table -->
+            <div class="user-info">
 
-    <table border="1" width="100%" cellpadding="10">
+                👤
+                <?php echo htmlspecialchars($_SESSION["username"]); ?>
 
-        <thead>
+                <br>
 
-            <tr>
+                <small>
+                    <?php echo htmlspecialchars($_SESSION["role"]); ?>
+                </small>
 
-                <th>ID</th>
-                <th>Course Code</th>
-                <th>Course Name</th>
-                <th>Credits</th>
-                <th>Semester</th>
-                <th>Action</th>
+            </div>
 
-            </tr>
+        </div>
 
-        </thead>
 
-        <tbody>
+        <!-- PAGE HEADER -->
 
-        <?php
+        <div class="courses-header">
 
-        if ($result->num_rows > 0) {
+            <div class="courses-title">
 
-            while ($row = $result->fetch_assoc()) {
+                <h1>Courses</h1>
 
-        ?>
+                <p>
+                    Manage course information, credits and semesters.
+                </p>
 
-            <tr>
+            </div>
 
-                <td>
-                    <?php echo $row["id"]; ?>
-                </td>
 
-                <td>
-                    <?php echo htmlspecialchars($row["course_code"]); ?>
-                </td>
+            <a href="add_course.php" class="add-course-btn">
 
-                <td>
-                    <?php echo htmlspecialchars($row["course_name"]); ?>
-                </td>
+                <span>＋</span>
 
-                <td>
-                    <?php echo htmlspecialchars($row["credits"]); ?>
-                </td>
+                Add Course
 
-                <td>
-                    <?php echo htmlspecialchars($row["semester"]); ?>
-                </td>
+            </a>
 
-                <td>
+        </div>
 
-                    <a href="edit_course.php?id=<?php echo $row["id"]; ?>">
-                        Edit
-                    </a>
 
-                    |
+        <!-- SEARCH -->
+
+        <div class="course-search-card">
+
+            <form method="GET" class="course-search-wrapper">
+
+                <div class="course-search-input-wrapper">
+
+                    <span class="course-search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        type="text"
+                        name="search"
+                        class="course-search-input"
+                        placeholder="Search by course code, name or semester..."
+                        value="<?php echo htmlspecialchars($search); ?>"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="course-search-btn"
+                >
+                    Search
+                </button>
+
+
+                <?php if ($search != ""): ?>
 
                     <a
-                        href="delete_course.php?id=<?php echo $row["id"]; ?>"
-                        onclick="return confirm('Are you sure you want to delete this course?');"
+                        href="courses.php"
+                        class="course-clear-btn"
                     >
-                        Delete
+                        Clear
                     </a>
 
-                </td>
+                <?php endif; ?>
 
-            </tr>
+            </form>
 
-        <?php
+        </div>
 
-            }
 
-        } else {
+        <!-- COURSE TABLE -->
 
-        ?>
+        <div class="courses-card">
 
-            <tr>
+            <div class="courses-card-header">
 
-                <td colspan="6">
-                    No courses found.
-                </td>
+                <div>
 
-            </tr>
+                    <h2>
+                        📚 Course Directory
+                    </h2>
 
-        <?php
+                    <p>
+                        All registered courses
+                    </p>
 
-        }
+                </div>
 
-        ?>
 
-        </tbody>
+                <span class="course-record-count">
 
-    </table>
+                    <?php echo $result->num_rows; ?>
+
+                    records
+
+                </span>
+
+            </div>
+
+
+            <div class="courses-table-wrapper">
+
+                <table class="courses-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Course Code</th>
+
+                            <th>Course Name</th>
+
+                            <th>Credits</th>
+
+                            <th>Semester</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                    <?php if ($result->num_rows > 0): ?>
+
+                        <?php while ($row = $result->fetch_assoc()): ?>
+
+                            <tr>
+
+                                <!-- COURSE CODE -->
+
+                                <td>
+
+                                    <div class="course-code-box">
+
+                                        <div class="course-code-icon">
+                                            📘
+                                        </div>
+
+                                        <div>
+
+                                            <div class="course-code">
+                                                <?php
+                                                echo htmlspecialchars(
+                                                    $row["course_code"]
+                                                );
+                                                ?>
+                                            </div>
+
+                                            <div class="course-label">
+                                                Course
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <!-- COURSE NAME -->
+
+                                <td>
+
+                                    <div class="course-name">
+
+                                        <?php
+                                        echo htmlspecialchars(
+                                            $row["course_name"]
+                                        );
+                                        ?>
+
+                                    </div>
+
+                                </td>
+
+
+                                <!-- CREDITS -->
+
+                                <td>
+
+                                    <span class="credits-badge">
+
+                                        <?php
+                                        echo htmlspecialchars(
+                                            $row["credits"]
+                                        );
+                                        ?>
+
+                                        Credits
+
+                                    </span>
+
+                                </td>
+
+
+                                <!-- SEMESTER -->
+
+                                <td>
+
+                                    <?php if ($row["semester"] == "Semester I"): ?>
+
+                                        <span class="semester-badge semester-one">
+                                            Semester I
+                                        </span>
+
+                                    <?php else: ?>
+
+                                        <span class="semester-badge semester-two">
+                                            Semester II
+                                        </span>
+
+                                    <?php endif; ?>
+
+                                </td>
+
+
+                                <!-- ACTIONS -->
+
+                                <td>
+
+                                    <div class="course-actions">
+
+                                        <a
+                                            href="edit_course.php?id=<?php echo $row["id"]; ?>"
+                                            class="action-btn course-edit-action"
+                                            title="Edit Course"
+                                        >
+                                            ✏️
+                                        </a>
+
+
+                                        <a
+                                            href="delete_course.php?id=<?php echo $row["id"]; ?>"
+                                            class="action-btn course-delete-action"
+                                            title="Delete Course"
+                                            onclick="return confirm('Are you sure you want to delete this course?');"
+                                        >
+                                            🗑️
+                                        </a>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        <?php endwhile; ?>
+
+
+                    <?php else: ?>
+
+                        <tr>
+
+                            <td
+                                colspan="5"
+                                class="course-empty-state"
+                            >
+
+                                <div class="course-empty-icon">
+                                    📚
+                                </div>
+
+                                <strong>
+                                    No courses found
+                                </strong>
+
+                                <br>
+
+                                <small>
+                                    Try another search or add a new course.
+                                </small>
+
+                            </td>
+
+                        </tr>
+
+                    <?php endif; ?>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
 
 </div>
 
 </body>
 
 </html>
-
-<?php
-
-/*<a href="dashboard.php">
-    ← Back to Dashboard
-</a>*/
-
-$stmt->close();
-
-?>

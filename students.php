@@ -1,40 +1,71 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.php");
+    exit();
+}
+
 include "db.php";
 
 $search = "";
 
 if (isset($_GET["search"])) {
-    $search = $_GET["search"];
+    $search = trim($_GET["search"]);
 }
 
-$sql = "SELECT * FROM students
-        WHERE student_id LIKE ?
-        OR full_name LIKE ?
-        ORDER BY id DESC";
+/* Search Students */
 
-$stmt = $conn->prepare($sql);
+if ($search != "") {
 
-$searchTerm = "%" . $search . "%";
+    $sql = "SELECT *
+            FROM students
+            WHERE student_id LIKE ?
+               OR full_name LIKE ?
+               OR email LIKE ?
+               OR course LIKE ?
+            ORDER BY id DESC";
 
-$stmt->bind_param("ss", $searchTerm, $searchTerm);
+    $stmt = $conn->prepare($sql);
 
-$stmt->execute();
+    $searchTerm = "%" . $search . "%";
 
-$result = $stmt->get_result();
+    $stmt->bind_param(
+        "ssss",
+        $searchTerm,
+        $searchTerm,
+        $searchTerm,
+        $searchTerm
+    );
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+} else {
+
+    $sql = "SELECT *
+            FROM students
+            ORDER BY id DESC";
+
+    $result = $conn->query($sql);
+}
 
 ?>
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <title>Student List</title>
+    <title>Students | SPMS</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -42,157 +73,429 @@ $result = $stmt->get_result();
 
 <body>
 
-<div class="container">
+<div class="dashboard">
 
-    <h1>Student List</h1>
+    <!-- SIDEBAR -->
 
-    <p>Search and manage registered students</p>
+    <aside class="sidebar">
 
-    <!-- Search Form -->
+        <h2>SPMS</h2>
 
-    <form method="GET" action="students.php">
+        <p class="sidebar-title">
+            Student Performance
+        </p>
 
-        <input
-            type="text"
-            name="search"
-            placeholder="Search by Student ID or Name"
-            value="<?php echo htmlspecialchars($search); ?>"
-        >
-
-        <button type="submit">
-            Search
-        </button>
-
-        <a href="students.php">
-            <button type="button">
-                Clear
-            </button>
+        <a href="dashboard.php">
+            🏠 Dashboard
         </a>
 
-    </form>
+        <a href="students.php" class="active">
+            👨‍🎓 Students
+        </a>
 
-    <br>
+        <a href="courses.php">
+            📚 Courses
+        </a>
 
-    <a href="add_student.php">
-        <button>Add New Student</button>
-    </a>
+        <a href="marks.php">
+            📝 Marks
+        </a>
 
-    <br><br>
+        <a href="gpa.php">
+            🧮 GPA Calculation
+        </a>
 
-    <!-- Student Table -->
+        <a href="#">
+            📅 Attendance
+        </a>
 
-    <table border="1" width="100%" cellpadding="10">
+        <a href="#">
+            📊 Reports
+        </a>
 
-        <thead>
+        <a href="#">
+            ⚙ Settings
+        </a>
 
-            <tr>
+        <a href="logout.php" class="logout-link">
+            🚪 Logout
+        </a>
 
-                <th>ID</th>
-                <th>Student ID</th>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Course</th>
-                <th>Year</th>
-                <th>Action</th>
+    </aside>
 
-            </tr>
 
-        </thead>
+    <!-- MAIN CONTENT -->
 
-        <tbody>
+    <main class="main-content students-page">
 
-        <?php
+        <!-- TOP BAR -->
 
-        if ($result->num_rows > 0) {
+        <div class="topbar">
 
-            while ($row = $result->fetch_assoc()) {
+            <div>
 
-        ?>
+                <span class="breadcrumb">
+                    Student Management
+                </span>
 
-            <tr>
+            </div>
 
-                <td>
-                    <?php echo $row["id"]; ?>
-                </td>
+            <div class="user-info">
 
-                <td>
-                    <?php echo htmlspecialchars($row["student_id"]); ?>
-                </td>
+                👤
+                <?php
+                echo htmlspecialchars(
+                    $_SESSION["username"]
+                );
+                ?>
 
-                <td>
-                    <?php echo htmlspecialchars($row["full_name"]); ?>
-                </td>
+                <br>
 
-                <td>
-                    <?php echo htmlspecialchars($row["email"]); ?>
-                </td>
+                <small>
+                    <?php
+                    echo htmlspecialchars(
+                        $_SESSION["role"]
+                    );
+                    ?>
+                </small>
 
-                <td>
-                    <?php echo htmlspecialchars($row["phone"]); ?>
-                </td>
+            </div>
 
-                <td>
-                    <?php echo htmlspecialchars($row["course"]); ?>
-                </td>
+        </div>
 
-                <td>
-                    <?php echo htmlspecialchars($row["year"]); ?>
-                </td>
 
-                <td>
+        <!-- PAGE HEADER -->
 
-                    <a href="edit_student.php?id=<?php echo $row["id"]; ?>">
-                        Edit
-                    </a>
+        <div class="students-header">
 
-                    |
+            <div class="students-title">
+
+                <h1>
+                    Students
+                </h1>
+
+                <p>
+                    Manage student profiles,
+                    academic information and records.
+                </p>
+
+            </div>
+
+            <a
+                href="add_student.php"
+                class="add-student-btn"
+            >
+                <span>＋</span>
+                Add Student
+            </a>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-card">
+
+            <form
+                method="GET"
+                class="search-wrapper"
+            >
+
+                <div class="search-input-wrapper">
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        type="text"
+                        name="search"
+                        class="search-input"
+                        placeholder="Search by ID, name, email or course..."
+                        value="<?php
+                            echo htmlspecialchars($search);
+                        ?>"
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="search-btn"
+                >
+                    Search
+                </button>
+
+                <?php if ($search != ""): ?>
 
                     <a
-                        href="delete_student.php?id=<?php echo $row["id"]; ?>"
-                        onclick="return confirm('Are you sure you want to delete this student?');"
+                        href="students.php"
+                        class="clear-btn"
                     >
-                        Delete
+                        Clear
                     </a>
 
-                </td>
+                <?php endif; ?>
 
-            </tr>
+            </form>
 
-        <?php
+        </div>
 
-            }
 
-        } else {
+        <!-- STUDENT TABLE -->
 
-        ?>
+        <div class="students-card">
 
-            <tr>
+            <div class="students-card-header">
 
-                <td colspan="8">
-                    No students found.
-                </td>
+                <div>
 
-            </tr>
+                    <h2>
+                        👨‍🎓 Student Directory
+                    </h2>
 
-        <?php
+                    <p>
+                        All registered students
+                    </p>
 
-        }
+                </div>
 
-        ?>
+                <span class="record-count">
 
-        </tbody>
+                    <?php
+                    echo $result->num_rows;
+                    ?>
 
-    </table>
+                    records
+
+                </span>
+
+            </div>
+
+
+            <div class="students-table-wrapper">
+
+                <table class="students-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Student</th>
+
+                            <th>Email</th>
+
+                            <th>Phone</th>
+
+                            <th>Course</th>
+
+                            <th>Year</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                    <?php if ($result->num_rows > 0): ?>
+
+                        <?php
+                        while (
+                            $row =
+                            $result->fetch_assoc()
+                        ):
+                        ?>
+
+                            <tr>
+
+                                <!-- STUDENT -->
+
+                                <td>
+
+                                    <div class="student-profile">
+
+                                        <div class="student-avatar">
+
+                                            <?php
+                                            echo strtoupper(
+                                                substr(
+                                                    $row["full_name"],
+                                                    0,
+                                                    1
+                                                )
+                                            );
+                                            ?>
+
+                                        </div>
+
+                                        <div>
+
+                                            <div class="student-name">
+
+                                                <?php
+                                                echo htmlspecialchars(
+                                                    $row["full_name"]
+                                                );
+                                                ?>
+
+                                            </div>
+
+                                            <div class="student-id">
+
+                                                <?php
+                                                echo htmlspecialchars(
+                                                    $row["student_id"]
+                                                );
+                                                ?>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <!-- EMAIL -->
+
+                                <td>
+
+                                    <?php
+                                    echo htmlspecialchars(
+                                        $row["email"]
+                                    );
+                                    ?>
+
+                                </td>
+
+
+                                <!-- PHONE -->
+
+                                <td>
+
+                                    <?php
+                                    echo htmlspecialchars(
+                                        $row["phone"]
+                                    );
+                                    ?>
+
+                                </td>
+
+
+                                <!-- COURSE -->
+
+                                <td>
+
+                                    <span class="course-badge">
+
+                                        <?php
+                                        echo htmlspecialchars(
+                                            $row["course"]
+                                        );
+                                        ?>
+
+                                    </span>
+
+                                </td>
+
+
+                                <!-- YEAR -->
+
+                                <td>
+
+                                    <span class="year-badge">
+
+                                        Year
+                                        <?php
+                                        echo $row["year"];
+                                        ?>
+
+                                    </span>
+
+                                </td>
+
+
+                                <!-- ACTIONS -->
+
+                                <td>
+
+                                    <div class="student-actions">
+
+                                        <a
+                                            href="edit_student.php?id=<?php
+                                                echo $row["id"];
+                                            ?>"
+                                            class="action-btn edit-action"
+                                            title="Edit Student"
+                                        >
+                                            ✏️
+                                        </a>
+
+                                        <a
+                                            href="delete_student.php?id=<?php
+                                                echo $row["id"];
+                                            ?>"
+                                            class="action-btn delete-action"
+                                            title="Delete Student"
+                                            onclick="return confirm('Are you sure you want to delete this student?');"
+                                        >
+                                            🗑️
+                                        </a>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        <?php endwhile; ?>
+
+                    <?php else: ?>
+
+                        <tr>
+
+                            <td
+                                colspan="6"
+                                class="empty-state"
+                            >
+
+                                <div class="empty-icon">
+                                    👨‍🎓
+                                </div>
+
+                                <strong>
+                                    No students found
+                                </strong>
+
+                                <br>
+
+                                <small>
+                                    Try another search
+                                    or add a new student.
+                                </small>
+
+                            </td>
+
+                        </tr>
+
+                    <?php endif; ?>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
 
 </div>
 
 </body>
 
 </html>
-
-<?php
-
-$stmt->close();
-
-?>
