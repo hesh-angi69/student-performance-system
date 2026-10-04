@@ -22,6 +22,18 @@ $studentData = $studentResult->fetch_assoc();
 
 $totalStudents = $studentData["total_students"];
 
+/* Total Courses */
+
+$courseQuery = "SELECT COUNT(*) AS total_courses FROM courses";
+
+$courseResult = $conn->query($courseQuery);
+
+$courseData = $courseResult->fetch_assoc();
+
+$totalCourses = $courseData["total_courses"];
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +75,7 @@ $totalStudents = $studentData["total_students"];
                 👨‍🎓 Students
             </a>
 
-            <a href="#">
+            <a href="courses.php">
                 📚 Courses
             </a>
 
@@ -159,9 +171,11 @@ $totalStudents = $studentData["total_students"];
 
                 <div>
 
-                    <h3>0</h3>
+                    <h3>
+                         <?php echo $totalCourses; ?>
+                    </h3>
 
-                    <p>Total Courses</p>
+                         <p>Total Courses</p>
 
                 </div>
 
