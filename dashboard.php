@@ -79,7 +79,7 @@ $totalCourses = $courseData["total_courses"];
                 📚 Courses
             </a>
 
-            <a href="#">
+            <a href="marks.php">
                 📝 Marks
             </a>
 
