@@ -1,5 +1,18 @@
 <?php
 
+
+
+session_start();
+
+if (!isset($_SESSION["user_id"])) {
+
+    header("Location: login.php");
+    exit();
+
+}
+
+
+
 include "db.php";
 
 /* Total Students */
@@ -95,9 +108,22 @@ $totalStudents = $studentData["total_students"];
 
             <div class="user-info">
 
-                👤 Admin
+    👤
+    <?php echo htmlspecialchars($_SESSION["username"]); ?>
 
-            </div>
+    <br>
+
+    <small>
+        <?php echo htmlspecialchars($_SESSION["role"]); ?>
+    </small>
+
+    |
+
+    <a href="logout.php">
+        Logout
+    </a>
+
+</div>
 
         </header>
 
