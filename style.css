@@ -3045,9 +3045,7 @@ body {
 }
 
 
-/* =========================================
-   QUICK ACTIONS
-========================================= */
+
 
 /* =========================================
    QUICK ACTIONS
@@ -3312,6 +3310,4209 @@ body {
 
     .quick-actions {
         grid-template-columns: 1fr;
+    }
+
+}
+
+
+
+
+/* =========================================================
+   MODERN ADD STUDENT PAGE
+========================================================= */
+
+.add-student-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 34px 36px 50px;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+========================================================= */
+
+.add-student-heading {
+    margin-bottom: 28px;
+}
+
+.modern-back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 14px;
+
+    color: #6366f1;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    transition: 0.2s ease;
+}
+
+.modern-back-button:hover {
+    color: #4338ca;
+    transform: translateX(-3px);
+}
+
+.modern-back-button span {
+    font-size: 17px;
+}
+
+.add-student-heading h1 {
+    margin: 0;
+
+    font-size: 30px;
+    line-height: 1.2;
+
+    letter-spacing: -0.7px;
+
+    color: #171c2b;
+}
+
+.add-student-heading p {
+    margin: 8px 0 0;
+
+    color: #858d9c;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.modern-alert {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 15px 18px;
+
+    margin-bottom: 22px;
+
+    border-radius: 13px;
+
+    border: 1px solid;
+}
+
+.modern-alert.success {
+    background: #f0fdf7;
+    border-color: #b7efd5;
+}
+
+.modern-alert.error {
+    background: #fff5f5;
+    border-color: #fecaca;
+}
+
+.modern-alert-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.modern-alert.success .modern-alert-icon {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.modern-alert.error .modern-alert-icon {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.modern-alert-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.modern-alert-content strong {
+    font-size: 13px;
+}
+
+.modern-alert-content span {
+    font-size: 12px;
+    color: #7a8494;
+}
+
+
+/* =========================================================
+   MAIN SPLIT LAYOUT
+========================================================= */
+
+.student-create-layout {
+    display: grid;
+
+    grid-template-columns: 350px minmax(0, 1fr);
+
+    min-height: 590px;
+
+    background: #ffffff;
+
+    border: 1px solid #e6e9ef;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 35px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   LEFT INFORMATION PANEL
+========================================================= */
+
+.student-info-panel {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 42px 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111827 0%,
+            #1e1b4b 100%
+        );
+
+    color: #ffffff;
+
+    overflow: hidden;
+}
+
+
+/* Decorative circles */
+
+.student-info-panel::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    right: -110px;
+    top: -90px;
+
+    background: rgba(129, 140, 248, 0.13);
+}
+
+.student-info-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    left: -100px;
+    bottom: -70px;
+
+    background: rgba(99, 102, 241, 0.12);
+}
+
+
+/* Top */
+
+.student-info-top {
+    position: relative;
+    z-index: 2;
+}
+
+.large-student-icon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 28px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    font-size: 28px;
+}
+
+.info-label {
+    margin-bottom: 13px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    color: #a5b4fc;
+}
+
+.student-info-top h2 {
+    max-width: 260px;
+
+    margin: 0 0 14px;
+
+    font-size: 26px;
+
+    line-height: 1.25;
+
+    letter-spacing: -0.5px;
+}
+
+.student-info-top p {
+    max-width: 270px;
+
+    margin: 0;
+
+    color: #aeb6c5;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.info-features {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 21px;
+
+    margin-top: 35px;
+}
+
+.info-feature {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+.feature-check {
+    width: 25px;
+    height: 25px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: rgba(129, 140, 248, 0.16);
+
+    color: #a5b4fc;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.info-feature strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 12px;
+
+    color: #f3f4f6;
+}
+
+.info-feature span {
+    display: block;
+
+    font-size: 11px;
+
+    color: #858fa1;
+}
+
+
+/* =========================================================
+   INFO FOOTER
+========================================================= */
+
+.info-panel-footer {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: flex-start;
+
+    margin-top: 35px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.info-footer-icon {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    color: #c7d2fe;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.info-panel-footer p {
+    margin: 0;
+
+    color: #7f899a;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   RIGHT FORM PANEL
+========================================================= */
+
+.student-form-panel {
+    padding: 42px 45px;
+
+    background: #ffffff;
+}
+
+.student-form-heading {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding-bottom: 25px;
+
+    margin-bottom: 30px;
+
+    border-bottom: 1px solid #edf0f4;
+}
+
+.student-form-heading > div:first-child span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #8b94a4;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+.student-form-heading h2 {
+    margin: 0;
+
+    font-size: 20px;
+
+    color: #202635;
+}
+
+.required-label {
+    color: #9ba3b1;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.modern-student-form {
+    width: 100%;
+}
+
+.modern-form-group {
+    margin-bottom: 22px;
+}
+
+.modern-form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.modern-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #384152;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.modern-form-group label span {
+    color: #ef4444;
+
+    margin-left: 2px;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.modern-input {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.modern-input-icon {
+    position: absolute;
+
+    left: 14px;
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    background: #f4f5f8;
+
+    color: #70798a;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    pointer-events: none;
+}
+
+.modern-input input {
+    width: 100%;
+    height: 47px;
+
+    box-sizing: border-box;
+
+    padding: 0 14px 0 49px;
+
+    border: 1px solid #dfe3e9;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #202635;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.modern-input input:hover {
+    border-color: #cbd1da;
+}
+
+.modern-input input:focus {
+    border-color: #6366f1;
+
+    background: #fcfcff;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.09);
+}
+
+.modern-input input::placeholder {
+    color: #b0b7c3;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.modern-form-actions {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 32px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #edf0f4;
+}
+
+.modern-cancel-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 43px;
+
+    padding: 0 21px;
+
+    border: 1px solid #dfe3e9;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #697384;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.modern-cancel-button:hover {
+    background: #f7f8fa;
+
+    color: #374151;
+}
+
+.modern-submit-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    height: 43px;
+
+    padding: 0 22px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px rgba(79, 70, 229, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.modern-submit-button span {
+    font-size: 18px;
+
+    line-height: 1;
+}
+
+.modern-submit-button:hover {
+    background: #4338ca;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 20px rgba(79, 70, 229, 0.28);
+}
+
+.modern-submit-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .student-create-layout {
+        grid-template-columns: 300px minmax(0, 1fr);
+    }
+
+    .student-info-panel {
+        padding: 35px 28px;
+    }
+
+    .student-form-panel {
+        padding: 35px 30px;
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .student-create-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .student-info-panel {
+        min-height: auto;
+
+        padding: 35px;
+    }
+
+    .student-info-top h2 {
+        max-width: 450px;
+    }
+
+    .student-info-top p {
+        max-width: 500px;
+    }
+
+    .info-features {
+        flex-direction: row;
+
+        flex-wrap: wrap;
+    }
+
+    .info-feature {
+        min-width: 200px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .add-student-container {
+        padding: 22px 16px 35px;
+    }
+
+    .add-student-heading h1 {
+        font-size: 25px;
+    }
+
+    .student-info-panel {
+        padding: 28px 24px;
+    }
+
+    .student-form-panel {
+        padding: 28px 20px;
+    }
+
+    .modern-form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .student-form-heading {
+        margin-bottom: 25px;
+    }
+
+    .modern-form-actions {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+    .modern-cancel-button,
+    .modern-submit-button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   MODERN ADD COURSE PAGE
+========================================================= */
+
+.add-course-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 34px 36px 50px;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+========================================================= */
+
+.add-course-heading {
+    margin-bottom: 28px;
+}
+
+.add-course-heading h1 {
+    margin: 0;
+
+    font-size: 30px;
+    line-height: 1.2;
+
+    letter-spacing: -0.7px;
+
+    color: #171c2b;
+}
+
+.add-course-heading p {
+    margin: 8px 0 0;
+
+    color: #858d9c;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MAIN SPLIT LAYOUT
+========================================================= */
+
+.course-create-layout {
+    display: grid;
+
+    grid-template-columns: 350px minmax(0, 1fr);
+
+    min-height: 590px;
+
+    background: #ffffff;
+
+    border: 1px solid #e6e9ef;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 35px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   LEFT COURSE INFORMATION PANEL
+========================================================= */
+
+.course-info-panel {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 42px 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111827 0%,
+            #172554 52%,
+            #1e1b4b 100%
+        );
+
+    color: #ffffff;
+
+    overflow: hidden;
+}
+
+
+.course-info-panel::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    right: -110px;
+    top: -90px;
+
+    background: rgba(96, 165, 250, 0.12);
+}
+
+
+.course-info-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    left: -100px;
+    bottom: -70px;
+
+    background: rgba(59, 130, 246, 0.10);
+}
+
+
+/* =========================================================
+   COURSE INFO TOP
+========================================================= */
+
+.course-info-top {
+    position: relative;
+
+    z-index: 2;
+}
+
+.large-course-icon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 28px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    font-size: 27px;
+
+    color: #bfdbfe;
+}
+
+
+.course-info-label {
+    margin-bottom: 13px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    color: #93c5fd;
+}
+
+
+.course-info-top h2 {
+    max-width: 260px;
+
+    margin: 0 0 14px;
+
+    font-size: 26px;
+
+    line-height: 1.25;
+
+    letter-spacing: -0.5px;
+}
+
+
+.course-info-top p {
+    max-width: 270px;
+
+    margin: 0;
+
+    color: #aeb6c5;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.course-info-features {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 21px;
+
+    margin-top: 35px;
+}
+
+
+.course-info-feature {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+
+.course-feature-check {
+    width: 25px;
+    height: 25px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: rgba(96, 165, 250, 0.14);
+
+    color: #93c5fd;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.course-info-feature strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 12px;
+
+    color: #f3f4f6;
+}
+
+
+.course-info-feature span {
+    display: block;
+
+    font-size: 11px;
+
+    color: #858fa1;
+}
+
+
+/* =========================================================
+   INFO FOOTER
+========================================================= */
+
+.course-info-panel-footer {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: flex-start;
+
+    margin-top: 35px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+
+.course-info-footer-icon {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    color: #bfdbfe;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+.course-info-panel-footer p {
+    margin: 0;
+
+    color: #7f899a;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   RIGHT FORM PANEL
+========================================================= */
+
+.course-form-panel {
+    padding: 42px 45px;
+
+    background: #ffffff;
+}
+
+
+.course-form-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding-bottom: 25px;
+
+    margin-bottom: 30px;
+
+    border-bottom: 1px solid #edf0f4;
+}
+
+
+.course-form-heading > div:first-child span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #8b94a4;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+
+.course-form-heading h2 {
+    margin: 0;
+
+    font-size: 20px;
+
+    color: #202635;
+}
+
+
+.course-required-label {
+    color: #9ba3b1;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.modern-course-form {
+    width: 100%;
+}
+
+
+.modern-course-form-group {
+    margin-bottom: 22px;
+}
+
+
+.modern-course-form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+.modern-course-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #384152;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.modern-course-form-group label span {
+    color: #ef4444;
+
+    margin-left: 2px;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.modern-course-input {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.modern-course-input-icon {
+    position: absolute;
+
+    left: 14px;
+
+    z-index: 2;
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    background: #f4f5f8;
+
+    color: #70798a;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    pointer-events: none;
+}
+
+
+.modern-course-input input,
+.modern-course-input select {
+    width: 100%;
+
+    height: 47px;
+
+    box-sizing: border-box;
+
+    padding: 0 14px 0 49px;
+
+    border: 1px solid #dfe3e9;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #202635;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.modern-course-input input:hover,
+.modern-course-input select:hover {
+    border-color: #cbd1da;
+}
+
+
+.modern-course-input input:focus,
+.modern-course-input select:focus {
+    border-color: #3b82f6;
+
+    background: #fcfdff;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.09);
+}
+
+
+.modern-course-input input::placeholder {
+    color: #b0b7c3;
+}
+
+
+.modern-course-input select {
+    cursor: pointer;
+
+    appearance: auto;
+}
+
+
+/* =========================================================
+   HELP TEXT
+========================================================= */
+
+.modern-course-form-group small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #9ba3b1;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.modern-course-form-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 32px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #edf0f4;
+}
+
+
+.modern-course-cancel-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 43px;
+
+    padding: 0 21px;
+
+    border: 1px solid #dfe3e9;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #697384;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+
+.modern-course-cancel-button:hover {
+    background: #f7f8fa;
+
+    color: #374151;
+}
+
+
+.modern-course-submit-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    height: 43px;
+
+    padding: 0 22px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px rgba(37, 99, 235, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.modern-course-submit-button span {
+    font-size: 18px;
+
+    line-height: 1;
+}
+
+
+.modern-course-submit-button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 20px rgba(37, 99, 235, 0.28);
+}
+
+
+.modern-course-submit-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .course-create-layout {
+        grid-template-columns: 300px minmax(0, 1fr);
+    }
+
+    .course-info-panel {
+        padding: 35px 28px;
+    }
+
+    .course-form-panel {
+        padding: 35px 30px;
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .course-create-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .course-info-panel {
+        min-height: auto;
+
+        padding: 35px;
+    }
+
+    .course-info-top h2 {
+        max-width: 450px;
+    }
+
+    .course-info-top p {
+        max-width: 500px;
+    }
+
+    .course-info-features {
+        flex-direction: row;
+
+        flex-wrap: wrap;
+    }
+
+    .course-info-feature {
+        min-width: 200px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .add-course-container {
+        padding: 22px 16px 35px;
+    }
+
+    .add-course-heading h1 {
+        font-size: 25px;
+    }
+
+    .course-info-panel {
+        padding: 28px 24px;
+    }
+
+    .course-form-panel {
+        padding: 28px 20px;
+    }
+
+    .modern-course-form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .course-form-heading {
+        margin-bottom: 25px;
+    }
+
+    .modern-course-form-actions {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+    .modern-course-cancel-button,
+    .modern-course-submit-button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   MODERN ADD MARKS PAGE
+   ========================================================= */
+
+.add-marks-container {
+    padding: 32px 36px 50px;
+}
+
+
+/* ================= PAGE HEADING ================= */
+
+.add-marks-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+.add-marks-heading h1 {
+    margin: 5px 0 8px;
+    font-size: 32px;
+    font-weight: 800;
+    color: #172033;
+    letter-spacing: -0.8px;
+}
+
+.add-marks-heading p {
+    margin: 0;
+    color: #7b8497;
+    font-size: 14px;
+}
+
+.page-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    color: #5967f2;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.back-page-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #5967f2;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.back-page-link:hover {
+    color: #3946d7;
+    transform: translateX(-3px);
+}
+
+
+/* ================= ALERT ================= */
+
+.modern-alert {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 18px;
+    margin-bottom: 24px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.modern-alert.success {
+    background: #ecfdf3;
+    color: #138a52;
+    border: 1px solid #c8f0da;
+}
+
+.modern-alert.error {
+    background: #fff1f2;
+    color: #d9364f;
+    border: 1px solid #ffd0d7;
+}
+
+
+/* ================= MAIN LAYOUT ================= */
+
+.marks-create-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.35fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+
+/* ================= LEFT INFO PANEL ================= */
+
+.marks-info-panel {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 610px;
+
+    padding: 34px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171d3d 0%,
+            #23295b 52%,
+            #3e49a7 100%
+        );
+
+    color: white;
+
+    box-shadow:
+        0 18px 45px rgba(35, 41, 91, 0.18);
+}
+
+.marks-info-panel::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    top: -100px;
+    right: -90px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.marks-info-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    bottom: -100px;
+    left: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+.marks-info-top {
+    position: relative;
+    z-index: 2;
+}
+
+.large-marks-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    font-size: 25px;
+}
+
+.marks-info-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    text-transform: uppercase;
+}
+
+.marks-info-top h2 {
+    max-width: 420px;
+
+    margin: 0 0 14px;
+
+    font-size: 25px;
+    line-height: 1.3;
+    font-weight: 750;
+}
+
+.marks-info-top p {
+    max-width: 440px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.70);
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* ================= FEATURES ================= */
+
+.marks-info-features {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+.marks-info-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.marks-feature-check {
+    flex-shrink: 0;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    font-size: 14px;
+}
+
+.marks-info-feature strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 13px;
+}
+
+.marks-info-feature span {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.58);
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* ================= FOOTER ================= */
+
+.marks-info-panel-footer {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.marks-info-panel-footer i {
+    font-size: 14px;
+}
+
+
+/* ================= FORM PANEL ================= */
+
+.marks-form-panel {
+    padding: 34px;
+
+    background: #ffffff;
+
+    border: 1px solid #edf0f6;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 14px 35px rgba(30, 41, 59, 0.07);
+}
+
+
+/* ================= FORM HEADING ================= */
+
+.marks-form-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+.marks-form-heading span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    color: #8a93a6;
+}
+
+.marks-form-heading h2 {
+    margin: 0;
+
+    color: #20283b;
+
+    font-size: 20px;
+    font-weight: 750;
+}
+
+.required-note {
+    color: #9aa2b2;
+    font-size: 11px;
+}
+
+
+/* ================= FORM ================= */
+
+.modern-marks-form {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+
+.modern-marks-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #394256;
+
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.modern-marks-form-group label span {
+    color: #ef5365;
+}
+
+.modern-marks-input-wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.modern-marks-input-icon {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    bottom: 1px;
+
+    width: 47px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px 0 0 11px;
+
+    background: #f4f6fb;
+
+    color: #6672ed;
+
+    font-size: 14px;
+
+    z-index: 1;
+}
+
+.modern-marks-input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 15px 0 59px;
+
+    border: 1px solid #e2e6ef;
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #293246;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.25s ease;
+
+    box-sizing: border-box;
+}
+
+.modern-marks-input::placeholder {
+    color: #a5adbb;
+}
+
+.modern-marks-input:hover {
+    border-color: #cbd1e0;
+}
+
+.modern-marks-input:focus {
+    border-color: #6875ef;
+
+    box-shadow:
+        0 0 0 4px rgba(104, 117, 239, 0.10);
+}
+
+.modern-marks-form-group small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #9aa2b2;
+
+    font-size: 11px;
+}
+
+
+/* ================= SELECT ================= */
+
+select.modern-marks-input {
+    cursor: pointer;
+
+    appearance: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #8b93a5 50%),
+        linear-gradient(135deg, #8b93a5 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 17px) 20px,
+        calc(100% - 12px) 20px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat: no-repeat;
+}
+
+
+/* ================= GRADE PREVIEW ================= */
+
+.marks-grade-preview {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 15px 17px;
+
+    margin-top: 2px;
+
+    border-radius: 13px;
+
+    background: #f7f8ff;
+
+    border: 1px solid #e6e8fb;
+}
+
+.marks-grade-preview-icon {
+    width: 39px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #e9ebff;
+
+    color: #5967e9;
+
+    font-size: 15px;
+}
+
+.marks-grade-preview span {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #8b93a6;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.marks-grade-preview strong {
+    display: block;
+
+    color: #30395c;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+
+/* ================= ACTION BUTTONS ================= */
+
+.modern-marks-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 5px;
+    padding-top: 22px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+.modern-marks-cancel-button,
+.modern-marks-submit-button {
+    height: 45px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 19px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 750;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+    box-sizing: border-box;
+}
+
+.modern-marks-cancel-button {
+    background: #f4f5f8;
+
+    color: #697286;
+
+    border: 1px solid #e8eaf0;
+}
+
+.modern-marks-cancel-button:hover {
+    background: #ebedf2;
+
+    color: #3e4658;
+}
+
+.modern-marks-submit-button {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5967ee,
+            #4352d8
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 18px rgba(76, 89, 222, 0.22);
+}
+
+.modern-marks-submit-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 24px rgba(76, 89, 222, 0.28);
+}
+
+.modern-marks-submit-button:active {
+    transform: translateY(0);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .marks-create-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .marks-info-panel {
+        min-height: auto;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .add-marks-container {
+        padding: 24px 18px 40px;
+    }
+
+    .add-marks-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .add-marks-heading h1 {
+        font-size: 27px;
+    }
+
+    .marks-info-panel,
+    .marks-form-panel {
+        padding: 25px;
+        border-radius: 18px;
+    }
+
+    .marks-info-top h2 {
+        font-size: 22px;
+    }
+
+    .modern-marks-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .modern-marks-cancel-button,
+    .modern-marks-submit-button {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .add-marks-heading h1 {
+        font-size: 24px;
+    }
+
+    .marks-info-panel,
+    .marks-form-panel {
+        padding: 20px;
+    }
+
+    .marks-form-heading {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+}
+
+
+/* =========================================================
+   MODERN EDIT STUDENT PAGE
+   ========================================================= */
+
+.edit-student-container {
+    padding: 32px 36px 50px;
+}
+
+
+/* ================= PAGE HEADING ================= */
+
+.edit-student-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+.edit-student-heading h1 {
+    margin: 5px 0 8px;
+
+    font-size: 32px;
+    font-weight: 800;
+
+    color: #172033;
+
+    letter-spacing: -0.8px;
+}
+
+.edit-student-heading p {
+    margin: 0;
+
+    color: #7b8497;
+
+    font-size: 14px;
+}
+
+
+/* ================= MAIN LAYOUT ================= */
+
+.student-edit-layout {
+    display: grid;
+
+    grid-template-columns: 0.85fr 1.35fr;
+
+    gap: 24px;
+
+    align-items: stretch;
+}
+
+
+/* ================= LEFT INFO PANEL ================= */
+
+.student-edit-info-panel {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 610px;
+
+    padding: 34px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171d3d 0%,
+            #23295b 52%,
+            #3e49a7 100%
+        );
+
+    color: white;
+
+    box-shadow:
+        0 18px 45px rgba(35, 41, 91, 0.18);
+}
+
+.student-edit-info-panel::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    top: -100px;
+    right: -90px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.07);
+}
+
+.student-edit-info-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    bottom: -100px;
+    left: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+}
+
+
+.student-edit-info-top {
+    position: relative;
+    z-index: 2;
+}
+
+
+.large-student-edit-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 17px;
+
+    background: rgba(255,255,255,0.12);
+
+    font-size: 25px;
+}
+
+
+.student-edit-info-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    color: rgba(255,255,255,0.65);
+
+    text-transform: uppercase;
+}
+
+
+.student-edit-info-top h2 {
+    max-width: 420px;
+
+    margin: 0 0 14px;
+
+    font-size: 25px;
+    line-height: 1.3;
+
+    font-weight: 750;
+}
+
+
+.student-edit-info-top p {
+    max-width: 440px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,0.70);
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* ================= FEATURES ================= */
+
+.student-edit-info-features {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+
+.student-edit-info-feature {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+}
+
+
+.student-edit-feature-check {
+    flex-shrink: 0;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.10);
+
+    font-size: 14px;
+}
+
+
+.student-edit-info-feature strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 13px;
+}
+
+
+.student-edit-info-feature span {
+    display: block;
+
+    color: rgba(255,255,255,0.58);
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= FOOTER ================= */
+
+.student-edit-info-panel-footer {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255,255,255,0.10);
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= FORM PANEL ================= */
+
+.student-edit-form-panel {
+    padding: 34px;
+
+    background: #ffffff;
+
+    border: 1px solid #edf0f6;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 14px 35px rgba(30,41,59,0.07);
+}
+
+
+/* ================= FORM HEADING ================= */
+
+.student-edit-form-heading {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+
+.student-edit-form-heading span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    color: #8a93a6;
+}
+
+
+.student-edit-form-heading h2 {
+    margin: 0;
+
+    color: #20283b;
+
+    font-size: 20px;
+
+    font-weight: 750;
+}
+
+
+/* ================= FORM ================= */
+
+.modern-student-edit-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.modern-student-edit-form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+}
+
+
+.modern-student-edit-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #394256;
+
+    font-size: 12px;
+
+    font-weight: 750;
+}
+
+
+.modern-student-edit-form-group label span {
+    color: #ef5365;
+}
+
+
+.modern-student-edit-input-wrapper {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.modern-student-edit-input-icon {
+    position: absolute;
+
+    left: 1px;
+    top: 1px;
+    bottom: 1px;
+
+    width: 47px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px 0 0 11px;
+
+    background: #f4f6fb;
+
+    color: #6672ed;
+
+    font-size: 14px;
+
+    z-index: 1;
+}
+
+
+.modern-student-edit-input {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px 0 59px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e2e6ef;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #293246;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+
+.modern-student-edit-input:hover {
+    border-color: #cbd1e0;
+}
+
+
+.modern-student-edit-input:focus {
+    border-color: #6875ef;
+
+    box-shadow:
+        0 0 0 4px rgba(104,117,239,0.10);
+}
+
+
+select.modern-student-edit-input {
+    cursor: pointer;
+
+    appearance: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #8b93a5 50%),
+        linear-gradient(135deg, #8b93a5 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 17px) 20px,
+        calc(100% - 12px) 20px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat: no-repeat;
+}
+
+
+/* ================= ACTIONS ================= */
+
+.modern-student-edit-form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 5px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+
+.modern-student-edit-cancel-button,
+.modern-student-edit-submit-button {
+    height: 45px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 19px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+    box-sizing: border-box;
+}
+
+
+.modern-student-edit-cancel-button {
+    background: #f4f5f8;
+
+    color: #697286;
+
+    border: 1px solid #e8eaf0;
+}
+
+
+.modern-student-edit-cancel-button:hover {
+    background: #ebedf2;
+
+    color: #3e4658;
+}
+
+
+.modern-student-edit-submit-button {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5967ee,
+            #4352d8
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 18px rgba(76,89,222,0.22);
+}
+
+
+.modern-student-edit-submit-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 24px rgba(76,89,222,0.28);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .student-edit-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .student-edit-info-panel {
+        min-height: auto;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .edit-student-container {
+        padding: 24px 18px 40px;
+    }
+
+    .edit-student-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .edit-student-heading h1 {
+        font-size: 27px;
+    }
+
+    .student-edit-info-panel,
+    .student-edit-form-panel {
+        padding: 25px;
+
+        border-radius: 18px;
+    }
+
+    .student-edit-info-top h2 {
+        font-size: 22px;
+    }
+
+    .modern-student-edit-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .modern-student-edit-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .modern-student-edit-cancel-button,
+    .modern-student-edit-submit-button {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .edit-student-heading h1 {
+        font-size: 24px;
+    }
+
+    .student-edit-info-panel,
+    .student-edit-form-panel {
+        padding: 20px;
+    }
+
+    .student-edit-form-heading {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+}
+
+
+
+/* =========================================================
+   MODERN EDIT COURSE PAGE
+   ========================================================= */
+
+.edit-course-container {
+    padding: 32px 36px 50px;
+}
+
+
+/* ================= PAGE HEADING ================= */
+
+.edit-course-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+.edit-course-heading h1 {
+    margin: 5px 0 8px;
+
+    font-size: 32px;
+    font-weight: 800;
+
+    color: #172033;
+
+    letter-spacing: -0.8px;
+}
+
+.edit-course-heading p {
+    margin: 0;
+
+    color: #7b8497;
+
+    font-size: 14px;
+}
+
+
+/* ================= MAIN LAYOUT ================= */
+
+.course-edit-layout {
+    display: grid;
+
+    grid-template-columns: 0.85fr 1.35fr;
+
+    gap: 24px;
+
+    align-items: stretch;
+}
+
+
+/* ================= LEFT INFO PANEL ================= */
+
+.course-edit-info-panel {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 560px;
+
+    padding: 34px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171d3d 0%,
+            #23295b 52%,
+            #3e49a7 100%
+        );
+
+    color: white;
+
+    box-shadow:
+        0 18px 45px rgba(35,41,91,0.18);
+}
+
+.course-edit-info-panel::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    top: -100px;
+    right: -90px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.07);
+}
+
+.course-edit-info-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    bottom: -100px;
+    left: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+}
+
+
+.course-edit-info-top {
+    position: relative;
+    z-index: 2;
+}
+
+
+.large-course-edit-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 17px;
+
+    background: rgba(255,255,255,0.12);
+
+    font-size: 25px;
+}
+
+
+.course-edit-info-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    color: rgba(255,255,255,0.65);
+
+    text-transform: uppercase;
+}
+
+
+.course-edit-info-top h2 {
+    max-width: 420px;
+
+    margin: 0 0 14px;
+
+    font-size: 25px;
+
+    line-height: 1.3;
+
+    font-weight: 750;
+}
+
+
+.course-edit-info-top p {
+    max-width: 440px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,0.70);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* ================= FEATURES ================= */
+
+.course-edit-info-features {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+
+.course-edit-info-feature {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+}
+
+
+.course-edit-feature-check {
+    flex-shrink: 0;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.10);
+
+    font-size: 14px;
+}
+
+
+.course-edit-info-feature strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 13px;
+}
+
+
+.course-edit-info-feature span {
+    display: block;
+
+    color: rgba(255,255,255,0.58);
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= FOOTER ================= */
+
+.course-edit-info-panel-footer {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255,255,255,0.10);
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= FORM PANEL ================= */
+
+.course-edit-form-panel {
+    padding: 34px;
+
+    background: #ffffff;
+
+    border: 1px solid #edf0f6;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 14px 35px rgba(30,41,59,0.07);
+}
+
+
+/* ================= FORM HEADING ================= */
+
+.course-edit-form-heading {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+
+.course-edit-form-heading span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    color: #8a93a6;
+}
+
+
+.course-edit-form-heading h2 {
+    margin: 0;
+
+    color: #20283b;
+
+    font-size: 20px;
+
+    font-weight: 750;
+}
+
+
+/* ================= FORM ================= */
+
+.modern-course-edit-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 21px;
+}
+
+
+.modern-course-edit-form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+}
+
+
+.modern-course-edit-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #394256;
+
+    font-size: 12px;
+
+    font-weight: 750;
+}
+
+
+.modern-course-edit-form-group label span {
+    color: #ef5365;
+}
+
+
+.modern-course-edit-input-wrapper {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.modern-course-edit-input-icon {
+    position: absolute;
+
+    left: 1px;
+    top: 1px;
+    bottom: 1px;
+
+    width: 47px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px 0 0 11px;
+
+    background: #f4f6fb;
+
+    color: #6672ed;
+
+    font-size: 14px;
+
+    z-index: 1;
+}
+
+
+.modern-course-edit-input {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px 0 59px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e2e6ef;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #293246;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+
+.modern-course-edit-input:hover {
+    border-color: #cbd1e0;
+}
+
+
+.modern-course-edit-input:focus {
+    border-color: #6875ef;
+
+    box-shadow:
+        0 0 0 4px rgba(104,117,239,0.10);
+}
+
+
+.modern-course-edit-form-group small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #9aa2b2;
+
+    font-size: 11px;
+}
+
+
+/* ================= SELECT ================= */
+
+select.modern-course-edit-input {
+    cursor: pointer;
+
+    appearance: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #8b93a5 50%),
+        linear-gradient(135deg, #8b93a5 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 17px) 20px,
+        calc(100% - 12px) 20px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat: no-repeat;
+}
+
+
+/* ================= ACTIONS ================= */
+
+.modern-course-edit-form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 5px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+
+.modern-course-edit-cancel-button,
+.modern-course-edit-submit-button {
+    height: 45px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 19px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+    box-sizing: border-box;
+}
+
+
+.modern-course-edit-cancel-button {
+    background: #f4f5f8;
+
+    color: #697286;
+
+    border: 1px solid #e8eaf0;
+}
+
+
+.modern-course-edit-cancel-button:hover {
+    background: #ebedf2;
+
+    color: #3e4658;
+}
+
+
+.modern-course-edit-submit-button {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5967ee,
+            #4352d8
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 18px rgba(76,89,222,0.22);
+}
+
+
+.modern-course-edit-submit-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 24px rgba(76,89,222,0.28);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .course-edit-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .course-edit-info-panel {
+        min-height: auto;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .edit-course-container {
+        padding: 24px 18px 40px;
+    }
+
+    .edit-course-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .edit-course-heading h1 {
+        font-size: 27px;
+    }
+
+    .course-edit-info-panel,
+    .course-edit-form-panel {
+        padding: 25px;
+
+        border-radius: 18px;
+    }
+
+    .course-edit-info-top h2 {
+        font-size: 22px;
+    }
+
+    .modern-course-edit-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .modern-course-edit-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .modern-course-edit-cancel-button,
+    .modern-course-edit-submit-button {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .edit-course-heading h1 {
+        font-size: 24px;
+    }
+
+    .course-edit-info-panel,
+    .course-edit-form-panel {
+        padding: 20px;
+    }
+
+    .course-edit-form-heading {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+}
+
+
+
+
+/* =========================================================
+   MODERN EDIT MARKS PAGE
+   ========================================================= */
+
+.edit-marks-container {
+    padding: 32px 36px 50px;
+}
+
+
+/* ================= PAGE HEADING ================= */
+
+.edit-marks-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+.edit-marks-heading h1 {
+    margin: 5px 0 8px;
+
+    font-size: 32px;
+    font-weight: 800;
+
+    color: #172033;
+
+    letter-spacing: -0.8px;
+}
+
+.edit-marks-heading p {
+    margin: 0;
+
+    color: #7b8497;
+
+    font-size: 14px;
+}
+
+
+/* ================= MAIN LAYOUT ================= */
+
+.marks-edit-layout {
+    display: grid;
+
+    grid-template-columns: 0.85fr 1.35fr;
+
+    gap: 24px;
+
+    align-items: stretch;
+}
+
+
+/* ================= LEFT INFO PANEL ================= */
+
+.marks-edit-info-panel {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 610px;
+
+    padding: 34px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171d3d 0%,
+            #23295b 52%,
+            #3e49a7 100%
+        );
+
+    color: white;
+
+    box-shadow:
+        0 18px 45px rgba(35,41,91,0.18);
+}
+
+.marks-edit-info-panel::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    top: -100px;
+    right: -90px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.07);
+}
+
+.marks-edit-info-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    bottom: -100px;
+    left: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+}
+
+
+.marks-edit-info-top {
+    position: relative;
+    z-index: 2;
+}
+
+
+.large-marks-edit-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 17px;
+
+    background: rgba(255,255,255,0.12);
+
+    font-size: 25px;
+}
+
+
+.marks-edit-info-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    color: rgba(255,255,255,0.65);
+
+    text-transform: uppercase;
+}
+
+
+.marks-edit-info-top h2 {
+    max-width: 420px;
+
+    margin: 0 0 14px;
+
+    font-size: 25px;
+
+    line-height: 1.3;
+
+    font-weight: 750;
+}
+
+
+.marks-edit-info-top p {
+    max-width: 440px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,0.70);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* ================= FEATURES ================= */
+
+.marks-edit-info-features {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+
+.marks-edit-info-feature {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+}
+
+
+.marks-edit-feature-check {
+    flex-shrink: 0;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.10);
+
+    font-size: 14px;
+}
+
+
+.marks-edit-info-feature strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 13px;
+}
+
+
+.marks-edit-info-feature span {
+    display: block;
+
+    color: rgba(255,255,255,0.58);
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= FOOTER ================= */
+
+.marks-edit-info-panel-footer {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255,255,255,0.10);
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= FORM PANEL ================= */
+
+.marks-edit-form-panel {
+    padding: 34px;
+
+    background: #ffffff;
+
+    border: 1px solid #edf0f6;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 14px 35px rgba(30,41,59,0.07);
+}
+
+
+/* ================= FORM HEADING ================= */
+
+.marks-edit-form-heading {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+
+.marks-edit-form-heading span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    color: #8a93a6;
+}
+
+
+.marks-edit-form-heading h2 {
+    margin: 0;
+
+    color: #20283b;
+
+    font-size: 20px;
+
+    font-weight: 750;
+}
+
+
+/* ================= FORM ================= */
+
+.modern-marks-edit-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 21px;
+}
+
+
+.modern-marks-edit-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #394256;
+
+    font-size: 12px;
+
+    font-weight: 750;
+}
+
+
+.modern-marks-edit-form-group label span {
+    color: #ef5365;
+}
+
+
+.modern-marks-edit-input-wrapper {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.modern-marks-edit-input-icon {
+    position: absolute;
+
+    left: 1px;
+    top: 1px;
+    bottom: 1px;
+
+    width: 47px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px 0 0 11px;
+
+    background: #f4f6fb;
+
+    color: #6672ed;
+
+    font-size: 14px;
+
+    z-index: 1;
+}
+
+
+.modern-marks-edit-input {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px 0 59px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e2e6ef;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #293246;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+
+.modern-marks-edit-input:hover {
+    border-color: #cbd1e0;
+}
+
+
+.modern-marks-edit-input:focus {
+    border-color: #6875ef;
+
+    box-shadow:
+        0 0 0 4px rgba(104,117,239,0.10);
+}
+
+
+.modern-marks-edit-form-group small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #9aa2b2;
+
+    font-size: 11px;
+}
+
+
+/* ================= SELECT ================= */
+
+select.modern-marks-edit-input {
+    cursor: pointer;
+
+    appearance: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #8b93a5 50%),
+        linear-gradient(135deg, #8b93a5 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 17px) 20px,
+        calc(100% - 12px) 20px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat: no-repeat;
+}
+
+
+/* ================= GRADE PREVIEW ================= */
+
+.marks-edit-grade-preview {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 15px 17px;
+
+    margin-top: 2px;
+
+    border-radius: 13px;
+
+    background: #f7f8ff;
+
+    border: 1px solid #e6e8fb;
+}
+
+
+.marks-edit-grade-preview-icon {
+    width: 39px;
+    height: 39px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #e9ebff;
+
+    color: #5967e9;
+
+    font-size: 15px;
+}
+
+
+.marks-edit-grade-preview span {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #8b93a6;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.marks-edit-grade-preview strong {
+    display: block;
+
+    color: #30395c;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+/* ================= ACTIONS ================= */
+
+.modern-marks-edit-form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 5px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+
+.modern-marks-edit-cancel-button,
+.modern-marks-edit-submit-button {
+    height: 45px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 19px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+    box-sizing: border-box;
+}
+
+
+.modern-marks-edit-cancel-button {
+    background: #f4f5f8;
+
+    color: #697286;
+
+    border: 1px solid #e8eaf0;
+}
+
+
+.modern-marks-edit-cancel-button:hover {
+    background: #ebedf2;
+
+    color: #3e4658;
+}
+
+
+.modern-marks-edit-submit-button {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5967ee,
+            #4352d8
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 18px rgba(76,89,222,0.22);
+}
+
+
+.modern-marks-edit-submit-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 24px rgba(76,89,222,0.28);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .marks-edit-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .marks-edit-info-panel {
+        min-height: auto;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .edit-marks-container {
+        padding: 24px 18px 40px;
+    }
+
+    .edit-marks-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .edit-marks-heading h1 {
+        font-size: 27px;
+    }
+
+    .marks-edit-info-panel,
+    .marks-edit-form-panel {
+        padding: 25px;
+
+        border-radius: 18px;
+    }
+
+    .marks-edit-info-top h2 {
+        font-size: 22px;
+    }
+
+    .modern-marks-edit-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .modern-marks-edit-cancel-button,
+    .modern-marks-edit-submit-button {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .edit-marks-heading h1 {
+        font-size: 24px;
+    }
+
+    .marks-edit-info-panel,
+    .marks-edit-form-panel {
+        padding: 20px;
+    }
+
+    .marks-edit-form-heading {
+        flex-direction: column;
+
+        gap: 8px;
     }
 
 }
