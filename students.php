@@ -2,9 +2,26 @@
 
 include "db.php";
 
-$sql = "SELECT * FROM students ORDER BY id DESC";
+$search = "";
 
-$result = $conn->query($sql);
+if (isset($_GET["search"])) {
+    $search = $_GET["search"];
+}
+
+$sql = "SELECT * FROM students
+        WHERE student_id LIKE ?
+        OR full_name LIKE ?
+        ORDER BY id DESC";
+
+$stmt = $conn->prepare($sql);
+
+$searchTerm = "%" . $search . "%";
+
+$stmt->bind_param("ss", $searchTerm, $searchTerm);
+
+$stmt->execute();
+
+$result = $stmt->get_result();
 
 ?>
 
@@ -25,124 +42,157 @@ $result = $conn->query($sql);
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>Student List</h1>
+    <h1>Student List</h1>
 
-        <p>All registered students</p>
+    <p>Search and manage registered students</p>
 
-        <a href="add_student.php">
-            <button>Add New Student</button>
+    <!-- Search Form -->
+
+    <form method="GET" action="students.php">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search by Student ID or Name"
+            value="<?php echo htmlspecialchars($search); ?>"
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+        <a href="students.php">
+            <button type="button">
+                Clear
+            </button>
         </a>
 
-        <br><br>
+    </form>
 
-        <table border="1" width="100%" cellpadding="10">
+    <br>
 
-            <thead>
+    <a href="add_student.php">
+        <button>Add New Student</button>
+    </a>
 
-                <tr>
+    <br><br>
 
-                    <th>ID</th>
-                    <th>Student ID</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Course</th>
-                    <th>Year</th>
-                    <th>Action</th>
+    <!-- Student Table -->
 
-                </tr>
+    <table border="1" width="100%" cellpadding="10">
 
-            </thead>
+        <thead>
 
-            <tbody>
+            <tr>
 
-                <?php
+                <th>ID</th>
+                <th>Student ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Course</th>
+                <th>Year</th>
+                <th>Action</th>
 
-                if ($result->num_rows > 0) {
+            </tr>
 
-                    while ($row = $result->fetch_assoc()) {
+        </thead>
 
-                ?>
+        <tbody>
 
-                        <tr>
+        <?php
 
-                            <td>
-                                <?php echo $row["id"]; ?>
-                            </td>
+        if ($result->num_rows > 0) {
 
-                            <td>
-                                <?php echo $row["student_id"]; ?>
-                            </td>
+            while ($row = $result->fetch_assoc()) {
 
-                            <td>
-                                <?php echo $row["full_name"]; ?>
-                            </td>
+        ?>
 
-                            <td>
-                                <?php echo $row["email"]; ?>
-                            </td>
+            <tr>
 
-                            <td>
-                                <?php echo $row["phone"]; ?>
-                            </td>
+                <td>
+                    <?php echo $row["id"]; ?>
+                </td>
 
-                            <td>
-                                <?php echo $row["course"]; ?>
-                            </td>
+                <td>
+                    <?php echo htmlspecialchars($row["student_id"]); ?>
+                </td>
 
-                            <td>
-                                <?php echo $row["year"]; ?>
-                            </td>
+                <td>
+                    <?php echo htmlspecialchars($row["full_name"]); ?>
+                </td>
 
-                            <td>
+                <td>
+                    <?php echo htmlspecialchars($row["email"]); ?>
+                </td>
 
-                                 <a href="edit_student.php?id=<?php echo $row["id"]; ?>">
-                                 Edit
-                                 </a>
+                <td>
+                    <?php echo htmlspecialchars($row["phone"]); ?>
+                </td>
 
-                                 |
+                <td>
+                    <?php echo htmlspecialchars($row["course"]); ?>
+                </td>
 
-                                   <a
-                                    href="delete_student.php?id=<?php echo $row["id"]; ?>"
-                                    onclick="return confirm('Are you sure you want to delete this student?');"
-                                     >
-                                     Delete
-                                 </a>
+                <td>
+                    <?php echo htmlspecialchars($row["year"]); ?>
+                </td>
 
-                            </td>
+                <td>
 
-                        </tr>
+                    <a href="edit_student.php?id=<?php echo $row["id"]; ?>">
+                        Edit
+                    </a>
 
-                <?php
+                    |
 
-                    }
+                    <a
+                        href="delete_student.php?id=<?php echo $row["id"]; ?>"
+                        onclick="return confirm('Are you sure you want to delete this student?');"
+                    >
+                        Delete
+                    </a>
 
-                } else {
+                </td>
 
-                ?>
+            </tr>
 
-                    <tr>
+        <?php
 
-                        <td colspan="7">
-                            No students found.
-                        </td>
+            }
 
-                    </tr>
+        } else {
 
-                <?php
+        ?>
 
-                }
+            <tr>
 
-                ?>
+                <td colspan="8">
+                    No students found.
+                </td>
 
-            </tbody>
+            </tr>
 
-        </table>
+        <?php
 
-    </div>
+        }
+
+        ?>
+
+        </tbody>
+
+    </table>
+
+</div>
 
 </body>
 
 </html>
+
+<?php
+
+$stmt->close();
+
+?>
